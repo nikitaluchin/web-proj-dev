@@ -4,6 +4,7 @@ let phone:string;
 let mail:string;
 let comment:string;
 function submit(e:Event) {
+    // прерывает стандартную обработку события (чтобы страница не перезагружалась)
     e.preventDefault();
     let response = fetch('https://formcarry.com/s/78e-aLgwV', {
         method: 'POST',
@@ -64,6 +65,7 @@ input::placeholder, textarea::placeholder {
 
 input[type=checkbox] {
     width: auto;
+    /* отключить стандартное отображение чекбокса */
     -webkit-appearance: none;
     appearance: none;
     margin: 0;

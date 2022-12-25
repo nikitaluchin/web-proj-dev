@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// props (свойства) - в качестве атрибутов задаются компоненту
 import { defineProps } from "vue";
 import { ref } from "vue";
 

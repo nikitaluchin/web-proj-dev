@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded", function(){
             if (partnersFirst==null) return;
             let current = parseFloat(partnersFirst.style.left.slice(0,partnersFirst.style.left.length-2));
             if (current<=2) {
-                partnersFirst.style.left=(current+0.25)+"vw";
+                partnersFirst.style.left=(current+0.0625)+"vw";
             } else {
                 partnersFirst.style.left="-23vw";
                 let partners =  partnersFirst.getElementsByClassName("partner");
@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", function(){
                 }
                 partners[0].innerHTML=temp;
             }
-        },20);
+        },10);
     }
     let partnersSecond = document.getElementById("partners-second");
     if(partnersSecond!=null) {
@@ -175,7 +175,7 @@ const appNavButton1 = createApp(AppNavButton);
 const mountedAppNavButton1 = appNavButton1.mount('#appNavFirst');
 
 const appLangButton = createApp(AppLangButton);
-const mountedAppLangButton = appLangButton.mount('.settings-buttons');
+const mountedAppLangButton = appLangButton.mount('#settings-buttons');
 
 const appForm = createApp(AppForm);
 const mountedAppForm = appForm.mount('#appForm');

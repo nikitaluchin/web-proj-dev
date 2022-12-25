@@ -118,7 +118,7 @@ nav a:hover, .nav-heading {
     font-size: 12px;
 }
 
-.settings-buttons {
+#settings-buttons {
     display: flex;
     gap:3px;
 }
