@@ -13,7 +13,9 @@ function DateDiff(date1:Date, date2:Date) {
 window.addEventListener("DOMContentLoaded", function(){
    
     let mobileMenuButton = document.getElementById("header-mobile-button");
-    mobileMenuButton?.addEventListener("click", showMenuMobile,{once: true});
+    // ? - обработка null (если он null, то ничего не произойдет)
+    // once: true, чтобы showMenuMobile сработало один раз (чтобы show и hide не выполнялись вместе)
+    mobileMenuButton?.addEventListener("click", showMenuMobile, {once: true});
 
     let sliderTrack = document.getElementById("reviews-frame-pages");
     if (sliderTrack!=null) sliderTrack.style.left="-100%";
@@ -30,6 +32,7 @@ window.addEventListener("DOMContentLoaded", function(){
         const partnersFirstInterval = setInterval( function(){
             let partnersFirst = document.getElementById("partners-first");
             if (partnersFirst==null) return;
+            // slice - отрезать часть строки
             let current = parseFloat(partnersFirst.style.left.slice(0,partnersFirst.style.left.length-2));
             if (current<=2) {
                 partnersFirst.style.left=(current+0.0625)+"vw";
@@ -42,6 +45,7 @@ window.addEventListener("DOMContentLoaded", function(){
                 }
                 partners[0].innerHTML=temp;
             }
+        // 10 - каждые 10 миллисекунд вызывается анонимная функция
         },10);
     }
     let partnersSecond = document.getElementById("partners-second");
@@ -90,6 +94,8 @@ window.addEventListener("DOMContentLoaded", function(){
     }
 });
 
+// 5 слайдов: 3 клонированный, 1, 2, 3, 1 клонированный
+// -0%, -100%, -200%, -300%, -400% 
 const SLIDER_PAGES_NUMBER = 3;
 function sliderNextPage():void {
     let sliderTrack = document.getElementById("reviews-frame-pages");
@@ -136,18 +142,22 @@ function sliderPreviousPage():void {
     }
 }
 
+// показ мобильной анимации
 function showMenuMobile() {
+    // start - время нажатия на кнопку
     const intervalShow = setInterval(function (start:Date){
         let mobileMenu = document.getElementById("menu-mobile");
         if(mobileMenu!=null) {
             let current = new Date();
+            // от 100% размера экрана отнимает 23px (высота мобильного хэдера)
             mobileMenu.style.top="calc(100vh - 23px - "+(DateDiff(current,start)/500*508)+"px)";
             if (DateDiff(current,start)>500) {
                 clearInterval(intervalShow);
                 mobileMenuButton?.addEventListener("click", hideMenuMobile, {once: true});
             }
         }
-    }, 3, new Date());
+    // 3 - функция setInterval будет вып-ться раз в 3 миллисекунды
+    }, 3, new Date()); 
     let mobileMenu = document.getElementById("menu-mobile");
     if (mobileMenu!=null) mobileMenu.style.display="block";
     let mobileMenuButton = document.getElementById("header-mobile-button");

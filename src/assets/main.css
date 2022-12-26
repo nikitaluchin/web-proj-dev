@@ -363,7 +363,9 @@ nav a:hover, .nav-heading {
 
 .services-info {
     display: flex;
+    /* flex-items, не влезающие по ширине, будут переноситься на след. строку */
     flex-wrap: wrap;
+    /* выравнивание по горизонтали так, что первый эл в начало, последний - в конец, и пространство меж ними делает */
     justify-content: space-between;
     margin-top: 20px;
 }
@@ -441,6 +443,7 @@ nav a:hover, .nav-heading {
 
 .support-container {
     width: 100%;
+    /* inset - тень внутрь, далее смещение по x, y, цвет  */
     box-shadow: inset 0px -820px #141622;
     position: relative;
 }
@@ -468,8 +471,10 @@ nav a:hover, .nav-heading {
 
 .support-option {
     border-radius: 3px;
+    /* первые два - смещение по x, y, далее размытие */
     box-shadow: 10px 5px 5px #f7f7f7;
     position: relative;
+    /* если что-то вылезло, то он его отрезает */
     overflow: hidden;
 }
 
@@ -488,12 +493,14 @@ nav a:hover, .nav-heading {
     font-size: 10px;
     max-width: 90%;
     margin-bottom: 40px;
+    /* номер слоя. чем число больше, приоритет выше */
     z-index: 5;
     position: relative;
     color: #9e9ea0;
 }
 
 .support-option-img-container {
+    /* позиционируется отн-о блока с position: relative, либо отн-о окна */
     position: absolute;
     right: 0;
     bottom: -5px;
@@ -678,6 +685,7 @@ nav a:hover, .nav-heading {
     max-width: 90%;
     display: flex;
     flex-direction: column;
+    /* выравнивание по вертикальной оси */
     align-items: center;
     justify-content: flex-start;
 }
@@ -887,6 +895,7 @@ nav a:hover, .nav-heading {
     .plans-option-center {
         padding-top: 66px;
         padding-bottom: 62px;
+        /* растягивается по высоте содержащего блока */
         align-self: stretch;
         position: static;
         z-index: 2;
@@ -1053,7 +1062,9 @@ nav a:hover, .nav-heading {
     }
 
     .case-first, .case-third, .case-fourth, .case-fifth, .case-seventh {
+        /* сколько занимает частей от общего */
         flex: 1;
+        /* сколько по умолчанию */
         flex-basis: calc(33.333% - 20px);
     }
 
@@ -1295,6 +1306,7 @@ nav a:hover, .nav-heading {
 
 .reviews-frame-menu-center {
     font-size: 20px;
+    /* не выходит на отдельную строку */
     display: inline;
 }
 
